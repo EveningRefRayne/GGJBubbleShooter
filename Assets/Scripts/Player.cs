@@ -41,6 +41,8 @@ public class Player : MonoBehaviour
     public float jumpSpeed = 2f;
     public float runModifier = 2f;
     public int maxHealth = 3;
+    public float reJumpTime = 1f;
+    private float jumpTime;
 
     //public AudioClip victoryMusic;
     //public AudioSource victorySource;
@@ -59,7 +61,7 @@ public class Player : MonoBehaviour
     private bool lockCursor = true;
     private bool mlMode = true;
     private int maxJumpCount = 2;
-    private int jumpsRemaining;
+    public int jumpsRemaining;
     private float maxIFrames = 1.5f;
 
     private Camera mainCamera;
@@ -192,24 +194,40 @@ public class Player : MonoBehaviour
 
     public void Jump()
     {
-        Debug.Log("Hit Jump");
-        Rigidbody rb = GetComponentInChildren<Rigidbody>();
-        rb.AddForce(Vector3.up * jumpSpeed);
-        jumpsRemaining--;
+        //Debug.Log("Hit Jump");
+        if (Time.time < jumpTime + reJumpTime) return;
+        else
+        {
+            Rigidbody rb = GetComponentInChildren<Rigidbody>();
+            if (rb.velocity.y < 0)
+            {
+                rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+            }
+            rb.AddForce(Vector3.up * jumpSpeed);
+            jumpTime = Time.time;
+            jumpsRemaining--;
+        }
     }
 
     public bool JumpAvailable()
     {
-        CapsuleCollider collider = GetComponentInChildren<CapsuleCollider>();
-        Vector3 halfHeight = Vector3.up * (collider.height - collider.radius);
-        float checkDistance = 3f;
-        float checkRadius = 0.8f;
-        bool floored = Physics.CapsuleCast(transform.position - halfHeight, transform.position - halfHeight, collider.radius * checkRadius, Vector3.down, checkDistance, ((int)CollisionMasks.TERRAIN));
-        if (floored)
+        if (Time.time < jumpTime + reJumpTime) return false;
+        else
         {
-            jumpsRemaining = maxJumpCount;
+            CapsuleCollider collider = GetComponentInChildren<CapsuleCollider>();
+            Debug.Log("Checking jump - height: " + collider.height + " and radius: " + collider.radius);
+            Vector3 halfHeight = Vector3.up * ((collider.height / 2) - collider.radius);
+            Debug.Log("Half height: " + halfHeight);
+            float checkDistance = collider.radius;
+            float checkRadius = 0.9f;
+            bool floored = Physics.CapsuleCast(transform.position, transform.position - halfHeight, collider.radius * checkRadius, Vector3.down, checkDistance, ((int)CollisionMasks.TERRAIN));
+            if (floored)
+            {
+                Debug.Log("On Ground");
+                jumpsRemaining = maxJumpCount;
+            }
+            return floored;
         }
-        return floored;
     }
 
     #region Rayne's camera code

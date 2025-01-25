@@ -13,12 +13,12 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Terrain
+  - Projectile
+  - Player
+  - Gun
+  - Death
+  - Other Mortal
   - 
   - 
   - 
