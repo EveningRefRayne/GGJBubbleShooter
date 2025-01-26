@@ -46,6 +46,7 @@ public class Player : MonoBehaviour
     public List<AudioClip> hurtSounds;
     public AudioClip whooshClip;
     public AudioSource playerSounds;
+    public GameObject respawnPoint;
 
     //public AudioClip victoryMusic;
     //public AudioSource victorySource;
@@ -54,6 +55,16 @@ public class Player : MonoBehaviour
     public int Health
     {
         get; private set;
+    }
+
+    public GameObject getRespawnPoint()
+    {
+        return respawnPoint;
+    }
+
+    public void setRespawnPoint(Vector3 trg)
+    {
+        respawnPoint.transform.position = trg;
     }
 
     public GameStates Mode
@@ -299,12 +310,14 @@ public class Player : MonoBehaviour
 
         //play hurt sound
         playerSounds.clip = hurtSounds[Random.Range(0, hurtSounds.Count - 1)];
+        playerSounds.pitch = 1.0f;
         playerSounds.Play();
         Health = Mathf.Min(Health - amount, maxHealth);
 
         if (Health <= 0)
         {
             playerSounds.clip = whooshClip;
+            playerSounds.pitch = 1.0f;
             playerSounds.Play();
             Die();
         }
@@ -315,8 +328,15 @@ public class Player : MonoBehaviour
     /// </summary>
     public void Die()
     {
-        transform.position = originalPosition;
+        transform.position = respawnPoint.transform.position;
         transform.rotation = originalRotation;
         Health = maxHealth;
+    }
+
+    public void playWhooshSound()
+    {
+        playerSounds.clip = whooshClip;
+        playerSounds.pitch = 0.8f;
+        playerSounds.Play();
     }
 }

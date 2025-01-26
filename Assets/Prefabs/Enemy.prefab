@@ -125,7 +125,7 @@ MonoBehaviour:
   shot: {fileID: 4851413045967831914, guid: 72c88090d17ac1a46a59ca3d27bb4dce, type: 3}
   enemyAudio: {fileID: 2788766532574772321}
   enemyHurtClip: {fileID: 8300000, guid: 694fbf0e8ce892c41ac03225c5682bb0, type: 3}
-  enemyDeathClip: {fileID: 8300000, guid: 7e76e68aad61f174dade2823204fd664, type: 3}
+  enemyShootClip: {fileID: 8300000, guid: 7e76e68aad61f174dade2823204fd664, type: 3}
 --- !u!114 &2763326264510450193
 MonoBehaviour:
   m_ObjectHideFlags: 0

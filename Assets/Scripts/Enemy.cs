@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     public AudioSource enemyAudio;
     public AudioClip enemyHurtClip;
-    public AudioClip enemyDeathClip;
+    public AudioClip enemyShootClip;
 
     void Start()
     {
@@ -28,8 +28,6 @@ public class Enemy : MonoBehaviour
         health--;
         if(health<=0)
         {
-            enemyAudio.clip = enemyDeathClip;
-            enemyAudio.Play();
             Die();
         }
         else
@@ -47,6 +45,8 @@ public class Enemy : MonoBehaviour
 
     public void shoot(Vector3 pos)
     {
+        enemyAudio.clip = enemyShootClip;
+        enemyAudio.Play();
         //Debug.Log("Shooting Called");
         Instantiate(shot, gameObject.transform.position, Quaternion.LookRotation(pos-gameObject.transform.position, Vector3.up));
     }

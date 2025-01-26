@@ -13,6 +13,7 @@ public class EnemySpawner : MonoBehaviour
     private GameObject spn;
     public bool active = false;
     private GameObject trg;
+    public float spawnRandomRange=5f;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +34,7 @@ public class EnemySpawner : MonoBehaviour
             //Debug.Log("bah");
             if (Time.time>lastSpawnTime+cooldown)
             {
-                spn = Instantiate(enemy, transform.position, Quaternion.identity);
+                spn = Instantiate(enemy, new Vector3(transform.position.x+Random.Range(-spawnRandomRange,spawnRandomRange),transform.position.y,transform.position.z+Random.Range(-spawnRandomRange,spawnRandomRange)), Quaternion.identity);
                 spn.GetComponent<EnemyController>().setupNav(beacons);
                 trg.GetComponent<CombatTrigger>().register(spn);
                 lastSpawnTime = Time.time;

@@ -6,6 +6,8 @@ public class CombatTrigger : MonoBehaviour
 {
     public GameObject spawner;
     public List<GameObject> enemyList;
+    public GameObject connectedButton;
+    private GameObject pl;
 
     public void spawnerDying()
     {
@@ -14,6 +16,7 @@ public class CombatTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        pl = other.gameObject;
         if (spawner!=null) spawner.GetComponent<EnemySpawner>().activateSpawner(gameObject);
     }
 
@@ -34,6 +37,13 @@ public class CombatTrigger : MonoBehaviour
     public void remove(GameObject enm)
     {
         enemyList.Remove(enm);
+        if (enemyList.Count == 0)
+        {
+            if (connectedButton != null)
+            {
+                connectedButton.SetActive(true);
+                connectedButton.GetComponent<WorldButton>().setPlayer(pl);
+            }
+        }
     }
-
 }

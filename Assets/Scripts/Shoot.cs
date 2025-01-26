@@ -48,7 +48,7 @@ public class Shoot : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, 1000f, 8449)) //layer mask hits default, terrain, and other mortal layers (hopefully)
             {
-                Debug.Log("Hit " + hit.collider.gameObject);
+                //Debug.Log("Hit " + hit.collider.gameObject);
                 if (hit.collider.gameObject.GetComponent<Enemy>() != null)
                 {
                     hit.collider.gameObject.GetComponent<Enemy>().takeDamage();
