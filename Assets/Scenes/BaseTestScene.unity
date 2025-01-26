@@ -1661,6 +1661,10 @@ PrefabInstance:
       propertyPath: hurtSounds.Array.data[3]
       value: 
       objectReference: {fileID: 8300000, guid: 4263c8677d2d89a43a6b06748076f16b, type: 3}
+    - target: {fileID: 4051167834565792340, guid: 7c2e2bf1cd947e749ae147fc10ba7783, type: 3}
+      propertyPath: m_Volume
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 7955892874812440405, guid: 7c2e2bf1cd947e749ae147fc10ba7783, type: 3}
       propertyPath: firePart
       value: 
