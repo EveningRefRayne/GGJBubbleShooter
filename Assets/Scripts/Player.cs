@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 
 public enum CollisionMasks
 {
@@ -27,6 +27,12 @@ public enum GameStates
 
 public class Player : MonoBehaviour
 {
+    // Stuff for life meter, if this breaks the whole game I'm sorry Rayne
+    
+    public TMP_Text numberOfLives;
+    //public LifeCounterManager lcManager;
+
+
     // "I'm allowed just one singleton, okay?" -Peng, 2020
     public static Player Me
     {
@@ -314,6 +320,11 @@ public class Player : MonoBehaviour
         playerSounds.Play();
         Health = Mathf.Min(Health - amount, maxHealth);
 
+        // Update life meter with new health
+        numberOfLives.text = Health.ToString();
+        //lcManager.updateLifeCounters(Health);
+
+
         if (Health <= 0)
         {
             playerSounds.clip = whooshClip;
@@ -331,6 +342,10 @@ public class Player : MonoBehaviour
         transform.position = respawnPoint.transform.position;
         transform.rotation = originalRotation;
         Health = maxHealth;
+
+        // Update life meter with new health
+        numberOfLives.text = Health.ToString();
+        //lcManager.updateLifeCounters(Health);
     }
 
     public void playWhooshSound()
