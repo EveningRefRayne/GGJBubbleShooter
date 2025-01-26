@@ -40,7 +40,8 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         GetComponent<EnemyController>().cTrigger.remove(gameObject);
-        Destroy(this.gameObject);
+        Debug.Log("Died.");
+        Destroy(gameObject);
     }
 
     public void shoot(Vector3 pos)

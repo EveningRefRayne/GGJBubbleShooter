@@ -321,7 +321,7 @@ public class Player : MonoBehaviour
         Health = Mathf.Min(Health - amount, maxHealth);
 
         // Update life meter with new health
-        numberOfLives.text = Health.ToString();
+        //numberOfLives.text = Health.ToString();
         //lcManager.updateLifeCounters(Health);
 
 
@@ -344,7 +344,7 @@ public class Player : MonoBehaviour
         Health = maxHealth;
 
         // Update life meter with new health
-        numberOfLives.text = Health.ToString();
+        //numberOfLives.text = Health.ToString();
         //lcManager.updateLifeCounters(Health);
     }
 

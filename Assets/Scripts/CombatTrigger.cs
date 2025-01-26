@@ -7,7 +7,7 @@ public class CombatTrigger : MonoBehaviour
     public GameObject spawner;
     public List<GameObject> enemyList;
     public GameObject connectedButton;
-    private GameObject pl;
+    public GameObject pl;
 
     public void spawnerDying()
     {
@@ -29,6 +29,22 @@ public class CombatTrigger : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        if ((pl != null))
+        {
+
+
+            if (Vector3.Distance(transform.position, pl.transform.position) > 60f)
+            {
+                foreach (GameObject enm in enemyList)
+                {
+                    enm.GetComponent<EnemyController>().enemyIdle();
+                }
+            }
+        }
+    }
+
     public void register(GameObject enm)
     {
         enemyList.Add(enm.GetComponent<EnemyController>().registerCombatTrigger(gameObject));
@@ -37,6 +53,7 @@ public class CombatTrigger : MonoBehaviour
     public void remove(GameObject enm)
     {
         enemyList.Remove(enm);
+        Destroy(enm);
         if (enemyList.Count == 0)
         {
             if (connectedButton != null)

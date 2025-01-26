@@ -1294,21 +1294,36 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'The story:
-
-    Blah blah blah
+  m_text: 'In an underwater base, sentient liquid bubbles have infiltrated and are
+    looking to capture you, and drag you into the ocean. You must defend yourself
+    with a nailgun you grabbed from a supply closet. Pop bubbles to reveal buttons,
+    shoot buttons to progress.
 
 
     The controls:
 
-    Move with WASD.
-    Look with mouse; shoot your nailgun with Mouse1.
+    Move with WASD. Look with
+    mouse; shoot your nailgun with Mouse1.
 
 
     Don''t get hit by a bubble.
 
 
-'
+    Credits:
+
+    Rayne
+    Taylor - Programming, game design
+
+    Caleb Maggio - Textures, UI
+
+    Chadwick
+    Pearson - 3D Modeling, Level Design
+
+    Cadence Quick - Music, Sound Effects
+
+
+    Also
+    uses Orbitron font, licensed under SIL Open Font License 1.1'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c1e19787ff4c6884db796476eab94572, type: 2}
   m_sharedMaterial: {fileID: -1136635498506979529, guid: c1e19787ff4c6884db796476eab94572, type: 2}
@@ -1335,8 +1350,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 46
-  m_fontSizeBase: 46
+  m_fontSize: 45
+  m_fontSizeBase: 45
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
