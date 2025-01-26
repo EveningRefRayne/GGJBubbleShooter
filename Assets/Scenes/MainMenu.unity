@@ -1317,13 +1317,13 @@ MonoBehaviour:
     Caleb Maggio - Textures, UI
 
     Chadwick
-    Pearson - 3D Modeling, Level Design
+    Pearson - 3D Modeling, Level Design, Textures
 
-    Cadence Quick - Music, Sound Effects
+    Cadence Quick - Music, Sound
+    Effects
 
 
-    Also
-    uses Orbitron font, licensed under SIL Open Font License 1.1'
+    Also uses Orbitron font, licensed under SIL Open Font License 1.1'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c1e19787ff4c6884db796476eab94572, type: 2}
   m_sharedMaterial: {fileID: -1136635498506979529, guid: c1e19787ff4c6884db796476eab94572, type: 2}
@@ -1350,8 +1350,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 44
+  m_fontSizeBase: 44
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
