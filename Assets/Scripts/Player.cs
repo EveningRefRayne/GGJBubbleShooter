@@ -43,6 +43,9 @@ public class Player : MonoBehaviour
     public int maxHealth = 3;
     public float reJumpTime = 1f;
     private float jumpTime;
+    public List<AudioClip> hurtSounds;
+    public AudioClip whooshClip;
+    public AudioSource playerSounds;
 
     //public AudioClip victoryMusic;
     //public AudioSource victorySource;
@@ -294,10 +297,15 @@ public class Player : MonoBehaviour
             IFrames = maxIFrames;
         }
 
+        //play hurt sound
+        playerSounds.clip = hurtSounds[Random.Range(0, hurtSounds.Count - 1)];
+        playerSounds.Play();
         Health = Mathf.Min(Health - amount, maxHealth);
 
         if (Health <= 0)
         {
+            playerSounds.clip = whooshClip;
+            playerSounds.Play();
             Die();
         }
     }

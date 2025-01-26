@@ -20,20 +20,26 @@ public class EnemyController : MonoBehaviour
     public float enemyAIUpdateTime;
     private float lastAIUpdateTime=0;
     private float shootingDistance;
+    public float shootRangeMax=25f;
+    public float shootRangeMin=10f;
     public float shootingTime;
+    public float shootTimeMin = 2.0f;
+    public float shootTimeMax = 5.0f;
     private float lastShotTime=0;
+    public float AITimeMin = 0.5f;
+    public float AITimeMax = 2.0f;
 
     public void Awake()
     {
         navAgent = GetComponent<NavMeshAgent>();
         randomizeNextUpdateTime();
-        shootingDistance = Random.Range(10f, 25.0f);
-        shootingTime = Random.Range(2.0f, 5.0f);
+        shootingDistance = Random.Range(shootRangeMin,shootRangeMax);
+        shootingTime = Random.Range(shootTimeMin,shootTimeMax);
     }
 
     public void randomizeNextUpdateTime()
     {
-        enemyAIUpdateTime = Random.Range(0.5f, 2f);
+        enemyAIUpdateTime = Random.Range(AITimeMin,AITimeMax);
     }
 
     public GameObject registerCombatTrigger(GameObject trg)

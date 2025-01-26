@@ -1420,6 +1420,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &2106878296 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2788766532574772321, guid: 071b834e1bace1a4f958c88bd5059c89, type: 3}
+  m_PrefabInstance: {fileID: 2567796438826629824}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &2127943546 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4238271732599141696, guid: 7c2e2bf1cd947e749ae147fc10ba7783, type: 3}
+  m_PrefabInstance: {fileID: 7992715675008558961}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2567796438826629824
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1432,6 +1442,18 @@ PrefabInstance:
       propertyPath: shot
       value: 
       objectReference: {fileID: 292168793}
+    - target: {fileID: 1710264956211079767, guid: 071b834e1bace1a4f958c88bd5059c89, type: 3}
+      propertyPath: enemyAudio
+      value: 
+      objectReference: {fileID: 2106878296}
+    - target: {fileID: 1710264956211079767, guid: 071b834e1bace1a4f958c88bd5059c89, type: 3}
+      propertyPath: enemyHurtClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 694fbf0e8ce892c41ac03225c5682bb0, type: 3}
+    - target: {fileID: 1710264956211079767, guid: 071b834e1bace1a4f958c88bd5059c89, type: 3}
+      propertyPath: enemyDeathClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7e76e68aad61f174dade2823204fd664, type: 3}
     - target: {fileID: 5866327952217031399, guid: 071b834e1bace1a4f958c88bd5059c89, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.55
@@ -1607,6 +1629,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1444711872696148881, guid: 7c2e2bf1cd947e749ae147fc10ba7783, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 978a404dd603b9c4f8da2dab9e8ed813, type: 3}
+    - target: {fileID: 3099105611447440033, guid: 7c2e2bf1cd947e749ae147fc10ba7783, type: 3}
+      propertyPath: whooshClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c49a04b35f4bc0f4b9f1b3c39f68ba5f, type: 3}
+    - target: {fileID: 3099105611447440033, guid: 7c2e2bf1cd947e749ae147fc10ba7783, type: 3}
+      propertyPath: playerSounds
+      value: 
+      objectReference: {fileID: 2127943546}
+    - target: {fileID: 3099105611447440033, guid: 7c2e2bf1cd947e749ae147fc10ba7783, type: 3}
+      propertyPath: hurtSounds.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099105611447440033, guid: 7c2e2bf1cd947e749ae147fc10ba7783, type: 3}
+      propertyPath: hurtSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 108dd9294daa4114c9f93e8482683cae, type: 3}
+    - target: {fileID: 3099105611447440033, guid: 7c2e2bf1cd947e749ae147fc10ba7783, type: 3}
+      propertyPath: hurtSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 664487086ff302d43a11536b72d41dbc, type: 3}
+    - target: {fileID: 3099105611447440033, guid: 7c2e2bf1cd947e749ae147fc10ba7783, type: 3}
+      propertyPath: hurtSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: d59f461f590200946926c6462759e9c7, type: 3}
+    - target: {fileID: 3099105611447440033, guid: 7c2e2bf1cd947e749ae147fc10ba7783, type: 3}
+      propertyPath: hurtSounds.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4263c8677d2d89a43a6b06748076f16b, type: 3}
     - target: {fileID: 7955892874812440405, guid: 7c2e2bf1cd947e749ae147fc10ba7783, type: 3}
       propertyPath: firePart
       value: 

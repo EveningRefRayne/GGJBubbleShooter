@@ -9,6 +9,10 @@ public class Enemy : MonoBehaviour
     private int health;
     public GameObject shot;
     // Start is called before the first frame update
+    public AudioSource enemyAudio;
+    public AudioClip enemyHurtClip;
+    public AudioClip enemyDeathClip;
+
     void Start()
     {
         health = maxhealth;
@@ -24,7 +28,14 @@ public class Enemy : MonoBehaviour
         health--;
         if(health<=0)
         {
+            enemyAudio.clip = enemyDeathClip;
+            enemyAudio.Play();
             Die();
+        }
+        else
+        {
+            enemyAudio.clip = enemyHurtClip;
+            enemyAudio.Play();
         }
     }
 
