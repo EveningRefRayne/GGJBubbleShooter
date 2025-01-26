@@ -28,11 +28,11 @@ public class Shoot : MonoBehaviour
 
     private void UpdateGameplay()
     {
-        if (Time.time> firedTime + flashTime)
+        if (Time.time > firedTime + flashTime)
         {
             firePart.SetActive(false);
         }
-        if (Time.time > firedTime+reFireTime && fireDown)
+        if (Time.time > firedTime + reFireTime && fireDown)
         {
             fireDown = false;
         }
@@ -46,13 +46,14 @@ public class Shoot : MonoBehaviour
             //Debug.Log("Shoot at: " + firedTime);
             Ray ray = cam.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit, 1000f, 8449)) //layer mask hits default, terrain, and other mortal layers (hopefully)
             {
+                Debug.Log("Hit " + hit.collider.gameObject);
                 if (hit.collider.gameObject.GetComponent<Enemy>() != null)
                 {
                     hit.collider.gameObject.GetComponent<Enemy>().takeDamage();
                 }
-                else if (hit.collider.gameObject.GetComponent<WorldButton>() !=null)
+                else if (hit.collider.gameObject.GetComponent<WorldButton>() != null)
                 {
                     hit.collider.gameObject.GetComponent<WorldButton>().activate();
                 }

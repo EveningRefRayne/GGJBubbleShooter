@@ -7,9 +7,11 @@ public class Enemy : MonoBehaviour
 
     public int maxhealth;
     private int health;
+    public GameObject shot;
     // Start is called before the first frame update
     void Start()
     {
+        health = maxhealth;
     }
 
     // Update is called once per frame
@@ -20,7 +22,7 @@ public class Enemy : MonoBehaviour
     public void takeDamage()
     {
         health--;
-        if(health>=0)
+        if(health<=0)
         {
             Die();
         }
@@ -28,8 +30,13 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        //do the particle effect then object die thing
-        //For now, let's just delete the game object.
-        //GameObject.Destroy
+        GetComponent<EnemyController>().cTrigger.remove(gameObject);
+        Destroy(this.gameObject);
+    }
+
+    public void shoot(Vector3 pos)
+    {
+        //Debug.Log("Shooting Called");
+        Instantiate(shot, gameObject.transform.position, Quaternion.LookRotation(pos-gameObject.transform.position, Vector3.up));
     }
 }

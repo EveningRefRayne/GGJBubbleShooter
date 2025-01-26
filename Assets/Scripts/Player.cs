@@ -215,15 +215,15 @@ public class Player : MonoBehaviour
         else
         {
             CapsuleCollider collider = GetComponentInChildren<CapsuleCollider>();
-            Debug.Log("Checking jump - height: " + collider.height + " and radius: " + collider.radius);
+            //Debug.Log("Checking jump - height: " + collider.height + " and radius: " + collider.radius);
             Vector3 halfHeight = Vector3.up * ((collider.height / 2) - collider.radius);
-            Debug.Log("Half height: " + halfHeight);
+            //Debug.Log("Half height: " + halfHeight);
             float checkDistance = collider.radius;
             float checkRadius = 0.9f;
             bool floored = Physics.CapsuleCast(transform.position, transform.position - halfHeight, collider.radius * checkRadius, Vector3.down, checkDistance, ((int)CollisionMasks.TERRAIN));
             if (floored)
             {
-                Debug.Log("On Ground");
+                //Debug.Log("On Ground");
                 jumpsRemaining = maxJumpCount;
             }
             return floored;
