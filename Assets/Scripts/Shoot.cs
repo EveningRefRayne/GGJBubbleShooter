@@ -8,7 +8,7 @@ public class Shoot : MonoBehaviour
     private bool fireDown;
     public float reFireTime = 0.5f;
     private float firedTime;
-    private float flashTime = 0.25f;
+    private float flashTime = 0.05f;
     public GameObject cam;
     public GameObject firePart;
     public AudioSource aS;

@@ -1,18 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+
+public enum EnemyState
+{
+    IDLE, CHASE, FIGHT
+}
 
 public class EnemyController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public NavMeshAgent navAgent;
+    public GameObject player;
+    public Vector3 playerTarget;
+    public Vector3 moveTarget;
+    public List<GameObject> moveBeacons;
+    public EnemyState cState;
+
+    public void Awake()
+    {
+
+        //navAgent.SetDestination
+    }
+
+    public EnemyState getState()
+    {
+        return cState;
+    }
+
+    public void enemyIdle()
+    {
+        cState = EnemyState.IDLE;
+    }
+    public void enemyEngage(GameObject trigger)
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void setupNav(List<GameObject> bcn)
     {
-        
+        moveBeacons = bcn;
     }
+
+
 }
+
